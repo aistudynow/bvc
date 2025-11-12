@@ -144,6 +144,7 @@
             justify-content: center;
             text-align: center;
             overflow: hidden;
+            z-index: 1;
         }
 
         .hero::before {
@@ -203,6 +204,16 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 32px;
+            position: sticky;
+            top: 0;
+            background-color: var(--color-light);
+            z-index: 100;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .contact-top-row.stuck {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .contact-top-left,
@@ -944,6 +955,23 @@
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             const navMenu = document.querySelector('.nav-menu');
             navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Sticky Header Effect
+        window.addEventListener('scroll', function() {
+            const contactTopRow = document.querySelector('.contact-top-row');
+            const contactSection = document.querySelector('.contact-section');
+
+            if (contactTopRow && contactSection) {
+                const sectionTop = contactSection.offsetTop;
+                const scrollPosition = window.pageYOffset;
+
+                if (scrollPosition >= sectionTop) {
+                    contactTopRow.classList.add('stuck');
+                } else {
+                    contactTopRow.classList.remove('stuck');
+                }
+            }
         });
     </script>
 </body>
