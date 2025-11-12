@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Between The Lines Copywriting</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #5D87A9;
+            --color-secondary: #132133;
+            --color-dark: #1D3145;
+            --color-light: #FFFFFF;
+            --color-gray: #b8b8b8;
+            --color-bg: #EFEBE6;
+            --color-footer: #172D43;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--color-dark);
+            background-color: var(--color-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Banner */
+        .banner {
+            background-color: #75A5CB;
+            padding: 12px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .banner-text {
+            color: var(--color-light);
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        .banner-text a {
+            color: var(--color-light);
+            text-decoration: underline;
+        }
+
+        .banner-close {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--color-light);
+            font-size: 24px;
+            cursor: pointer;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Navigation */
+        .nav {
+            padding: 20px 0;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            width: 52px;
+            height: 63px;
+        }
+
+        .nav-menu {
+            display: none;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        .nav-btn {
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            padding: 12px 20px;
+            border: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: var(--color-secondary);
+            font-size: 24px;
+            cursor: pointer;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(0deg, rgba(0,0,0,1) 0%, transparent 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+
+        .hero-subtitle {
+            color: var(--color-light);
+            font-family: 'Brush Script MT', cursive;
+            font-size: 20px;
+            margin-bottom: 10px;
+            letter-spacing: -0.1em;
+        }
+
+        .hero-title {
+            color: var(--color-light);
+            font-family: 'Georgia', serif;
+            font-size: 39px;
+            line-height: 1;
+            margin-bottom: 0;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                height: 700px;
+            }
+            .hero-subtitle {
+                font-size: 30px;
+            }
+            .hero-title {
+                font-size: 101px;
+            }
+        }
+
+        /* CONTACT SECTION: top row + sticky left + form right */
+
+        .contact-section {
+            background-color: var(--color-light);
+            padding: 80px 0 60px;
+        }
+
+        .contact-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 32px;
+        }
+
+        .contact-top-left,
+        .contact-top-right {
+            color: var(--color-dark);
+            white-space: nowrap;
+        }
+
+        .contact-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        @media (min-width: 900px) {
+            .contact-layout {
+                display: grid;
+                grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.25fr);
+                gap: 60px;
+            }
+
+            .contact-left {
+                position: sticky;
+                top: 80px;
+                align-self: flex-start;
+            }
+        }
+
+        .contact-heading {
+            font-family: 'Georgia', serif;
+            font-size: 32px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        @media (min-width: 900px) {
+            .contact-heading {
+                font-size: 54px;
+            }
+        }
+
+        .contact-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .contact-avatar {
+            width: 59px;
+            height: 59px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid rgba(19, 33, 51, 0.2);
+            background-color: #ddd;
+            flex-shrink: 0;
+        }
+
+        .contact-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .contact-author-name {
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .contact-intro {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            max-width: 480px;
+        }
+
+        .contact-box {
+            border: 1px solid rgba(19, 33, 51, 0.3);
+            padding: 24px 24px 28px;
+            max-width: 480px;
+            background-color: var(--color-light);
+        }
+
+        .contact-box p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 14px;
+            text-transform: none;
+        }
+
+        .contact-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-box-email {
+            font-size: 18px;
+            color: var(--color-dark);
+            text-decoration: underline;
+        }
+
+        /* Right column form */
+
+        .form-title {
+            font-family: 'Georgia', serif;
+            font-size: 22px;
+            font-style: italic;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        @media (min-width: 900px) {
+            .form-title {
+                font-size: 26px;
+                margin-bottom: 32px;
+            }
+        }
+
+        .contact-form {
+            background-color: var(--color-light);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid var(--color-gray);
+            background-color: transparent;
+            font-size: 13px;
+            font-family: inherit;
+            color: var(--color-dark);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            padding: 12px 40px;
+            border: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            font-weight: 500;
+            width: 100%;
+        }
+
+        .form-submit:hover {
+            background-color: rgba(93, 135, 169, 0.8);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #335C80;
+            padding: 60px 20px;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-header h3 {
+            color: var(--color-light);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            color: var(--color-light);
+        }
+
+        .faq-question h4 {
+            font-family: 'Georgia', serif;
+            font-size: 24px;
+            line-height: 1.2;
+            flex: 1;
+        }
+
+        .faq-toggle {
+            font-size: 28px;
+            margin-left: 20px;
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            color: var(--color-light);
+            font-size: 16px;
+            padding-top: 20px;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        /* Services Section (optional) */
+        .services-section {
+            background-color: #1C1C1C;
+            padding: 80px 20px;
+        }
+
+        .services-grid {
+            display: grid;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-card {
+            background-color: var(--color-light);
+            padding: 40px 30px;
+            text-align: left;
+        }
+
+        .service-number {
+            font-size: 14px;
+            color: var(--color-dark);
+            margin-bottom: 20px;
+        }
+
+        .service-title {
+            font-size: 55px;
+            line-height: 1.1;
+            color: var(--color-dark);
+            margin-bottom: 20px;
+        }
+
+        .service-description {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .service-link {
+            display: inline-block;
+            background-color: #335C80;
+            color: var(--color-light);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Opt-in Section */
+        .optin-section {
+            background-color: #161616;
+            padding: 80px 20px;
+            color: var(--color-light);
+        }
+
+        .optin-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .optin-title {
+            font-family: 'Georgia', serif;
+            font-size: 32px;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .optin-text {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .optin-title {
+                font-size: 64px;
+            }
+        }
+
+        /* Newsletter forms (opt-in + footer) */
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+        }
+
+        .newsletter-form input {
+            padding: 12px 20px;
+            border: 1px solid var(--color-gray);
+            background-color: transparent;
+            color: var(--color-light);
+            font-size: 13px;
+        }
+
+        .newsletter-form button {
+            background-color: var(--color-light);
+            color: var(--color-secondary);
+            padding: 12px 20px;
+            border: none;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.3px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        @media (min-width: 768px) {
+            .newsletter-form {
+                flex-direction: row;
+            }
+            .newsletter-form input {
+                flex: 1;
+            }
+            .newsletter-form button {
+                width: auto;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-footer);
+            color: var(--color-light);
+            padding: 60px 20px 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .footer-logo {
+            width: 84px;
+            height: 127px;
+            margin-bottom: 20px;
+        }
+
+        .footer-text {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .footer-heading {
+            font-size: 29px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--color-light);
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .newsletter-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .newsletter-text {
+            font-size: 16px;
+            margin-bottom: 20px;
+            letter-spacing: 0.025em;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 10px;
+            letter-spacing: 0.025em;
+        }
+
+        .footer-bottom a {
+            color: var(--color-light);
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner -->
+    <div class="banner" id="banner">
+        <div class="container">
+            <p class="banner-text">
+                <strong>Ever felt sooo freaking annoying while selling online? Come to <a href="#" target="_self">my "YOU'RE NOT ANNOYING" workshop</a> to fix that!</strong>
+            </p>
+            <button class="banner-close" onclick="document.getElementById('banner').style.display='none'" aria-label="Close banner">×</button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-inner">
+            <a href="/" aria-label="Home">
+                <svg class="nav-logo" width="52" height="63" viewBox="0 0 52 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="52" height="63" fill="#1D3145"/>
+                </svg>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/about">About</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/portfolio">Portfolio</a></li>
+                <li><a href="/shop">Shop</a></li>
+                <li><a href="/blog">Blog</a></li>
+            </ul>
+            <button class="nav-btn">Inquire</button>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">So your story needs an author?</p>
+            <h1 class="hero-title">Sounds great,<br>I'll grab my pen.</h1>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section">
+        <div class="container">
+            <!-- Top row: left + right like screenshot -->
+            <div class="contact-top-row">
+                <span class="contact-top-left">GET IN TOUCH WITH ME</span>
+                <span class="contact-top-right">LET'S WORK TOGETHER</span>
+            </div>
+
+            <!-- Grid: sticky left + scrolling form right -->
+            <div class="contact-layout">
+                <!-- LEFT (sticky) -->
+                <div class="contact-left">
+                    <h2 class="contact-heading">
+                        Well, actually, I'll grab my laptop... but you know what I mean.
+                    </h2>
+
+                    <div class="contact-author">
+                        <div class="contact-avatar">
+                            <!-- change avatar.jpg to your actual image file -->
+                            <img src="avatar.jpg" alt="Sara from Between The Lines Copywriting">
+                        </div>
+                        <p class="contact-author-name">Sara from Between The Lines Copywriting</p>
+                    </div>
+
+                    <!-- This is NOT inside the box (matches screenshot) -->
+                    <p class="contact-intro">
+                        Whether you need fresh new copy for your website, your next online course launch,
+                        your big-deal email funnel, or <em>another</em> cool copywriting project you have in mind,
+                        <strong>I'm ready to get drafting.</strong>
+                    </p>
+
+                    <!-- Bordered box with inquiries + email -->
+                    <div class="contact-box">
+                        <p>
+                            <strong>
+                                FOR INQUIRIES ABOUT INTERVIEWS, PODCAST APPEARANCES, GUEST EDUCATION,
+                                AND LIVE EVENT EDUCATION, PLEASE EMAIL ME DIRECTLY:
+                            </strong>
+                        </p>
+                        <p>
+                            <a href="mailto:sara@betweenthelinescopy.com" class="contact-box-email">
+                                sara@betweenthelinescopy.com
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- RIGHT (scrolling form) -->
+                <div class="contact-right">
+                    <h2 class="form-title">Now Booking February/March 2026</h2>
+
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="business">Business Name</label>
+                            <input type="text" id="business" name="business">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="website">Website</label>
+                            <input type="url" id="website" name="website">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">What service are you interested in?</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="website">Website Copywriting</option>
+                                <option value="email">Email Marketing</option>
+                                <option value="launch">Launch Strategy</option>
+                                <option value="mentorship">Copy Mentorship</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">How can I serve you? *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-header">
+                <h3>Frequently Asked Questions</h3>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>Do you offer payment plans?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, I do! For more information, simply indicate in the "how can I serve you?" section of the above contact form that you're interested in hearing more about payment plan options.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>How far in advance should I reach out to work with you?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>I typically book my projects 3-6 months in advance, so my honest answer to this question is: sooner rather than later. It's just me over here at BTL; I don't outsource projects to a team, or work with any associate writers—so I can only take on a limited amount of projects at a time.</p>
+                    <p>That being said, though, if you're hoping to work together on a copy project and our timelines don't align, I do have a few other options: you can purchase my website copy guide, you can take my website copywriting course, I can audit your site for you, or I can recommend one of my many extremely talented copywriter students to connect you with.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>If you write my copy, will it still sound like me?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>YES! It will absolutely sound like you. I'm committed to making your copy feel like the perfect representation of you and your brand, and I have designed my research and writing process with that in mind.</p>
+                    <p>Plus, you'll fill out a detailed brand persona questionnaire prior to the start of our project, which will allow me to get to really know you, your preferences, and your voice. Then, on our kickoff call, we'll go over everything together so I can make sure that I know your voice inside and out, and am ready to accurately portray your personality!</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>Do you also design websites orrrrrr just write them?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>I don't do any of the web design, but I do have a great (extensive) list of website designers that I've worked with and loved, for all website hosting platforms.</p>
+                    <p>Simply let me know that you're looking for a designer, and I'll help you select a creator that aligns with your brand's aesthetic and goals, and the platform you intend to use. Or, if you'd prefer to use a template, I recommend purchasing one of these.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optional Services Section -->
+    <section class="services-section">
+        <div class="services-grid">
+            <div class="service-card">
+                <p class="service-number">01</p>
+                <h3 class="service-title">Websites</h3>
+                <p class="service-description">Done-for-you website copy that feels like you, sells for you, and sounds like your best self on the best day.</p>
+                <a href="/services" class="service-link">Explore Website Copy</a>
+            </div>
+            <div class="service-card">
+                <p class="service-number">02</p>
+                <h3 class="service-title">Email</h3>
+                <p class="service-description">Email strategy and copy that keeps your people opening, clicking, and waiting for your next story.</p>
+                <a href="/services" class="service-link">See Email Services</a>
+            </div>
+            <div class="service-card">
+                <p class="service-number">03</p>
+                <h3 class="service-title">Mentorship</h3>
+                <p class="service-description">Copy mentorship and education for copy-curious business owners and copywriters who want to get better on purpose.</p>
+                <a href="/services" class="service-link">View Mentorship</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opt-in Section -->
+    <section class="optin-section">
+        <div class="container">
+            <div class="optin-content">
+                <h2 class="optin-title">The BTL Glowing Testimonial Guide</h2>
+                <div class="optin-text">
+                    <p>People love to hear from other people, and they're quick to trust their opinions, which is why adding elements of social proof on your website—like bomb reviews and testimonials—can exponentially improve the success of your business.</p>
+                    <p>Download my free Glowing Testimonial Guide to get access to the exact questions I ask my clients on my own feedback form so you can start getting the best testimonials, too! And the best part? This form comes with an auto-linked spreadsheet that will organize all of your data for you. Game-changer.</p>
+                </div>
+                <form class="newsletter-form" id="testimonialForm">
+                    <input type="text" placeholder="First name" name="firstName">
+                    <input type="email" placeholder="Email address" name="email" required>
+                    <button type="submit">Get the Guide</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <svg class="footer-logo" width="84" height="127" viewBox="0 0 84 127" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="84" height="127" fill="#FFFFFF"/>
+                    </svg>
+                    <p class="footer-text">
+                        Between The Lines Copywriting is a website copywriting and education hub for main characters who care about making their stories count.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Navigate</h4>
+                    <ul class="footer-links">
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/shop">Shop</a></li>
+                        <li><a href="/freebies">Freebies</a></li>
+                        <li><a href="/podcast">Podcast</a></li>
+                        <li><a href="/portfolio">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="newsletter-title">Tuesday Table of Contents</h4>
+                    <p class="newsletter-text">
+                        Join thousands of subscribers who read my newsletter every Tuesday morning for one copywriting tip, once a week — alongside a good story that you'll have serious FOMO about missing if you don't subscribe.
+                    </p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="text" placeholder="First name" name="firstName">
+                        <input type="email" placeholder="Email address" name="email" required>
+                        <button type="submit">Subscribe!</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Between the Lines Copywriting, 2025 | <a href="/legal">Legal</a> | <a href="#">Site Credit</a> | Not a single word of this site was written with AI.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+
+            faqItem.classList.toggle('active');
+            answer.classList.toggle('active');
+        }
+
+        // Form Submissions
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We will get back to you soon.');
+            this.reset();
+        });
+
+        document.getElementById('testimonialForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing! Check your email for the guide.');
+            this.reset();
+        });
+
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            this.reset();
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
