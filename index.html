@@ -677,6 +677,74 @@
             letter-spacing: 0.1em;
         }
 
+
+
+    /* About the author */
+        .about-author {
+            background-color: #EFEBE6;
+            padding: 80px 20px;
+        }
+
+        .about-author-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-author-image img {
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .about-author-content {
+            max-width: 600px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .about-author-content h3 {
+            font-family: 'Mercenary Medium', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 16px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-secondary);
+        }
+
+        .about-author-content p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--color-dark);
+        }
+
+        @media (min-width: 992px) {
+            .about-author-container {
+                flex-direction: row;
+                align-items: stretch;
+                justify-content: center;
+            }
+
+            .about-author-image,
+            .about-author-content {
+                flex: 1;
+            }
+
+            .about-author-image {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+
+
+
+
         /* Opt-in Section */
         .optin-section {
             background-color: #161616;
@@ -1044,6 +1112,28 @@
             </div>
         </div>
     </section>
+
+
+
+
+ <!-- About the Author -->
+    <section class="about-author" id="about-the-author">
+        <div class="container about-author-container">
+            <div class="about-author-image">
+                <img src="https://static.showit.co/400/3U3LJOFHQKOcl3RM_YfzMQ/146140/screenshot_2024-06-17_at_7_26_21_am.png" alt="Sara Noel at Lighthouse Keepers Pantry" loading="lazy">
+            </div>
+            <div class="about-author-content">
+                <h3>about the author</h3>
+                <p><strong>Sara Joelle</strong> is a copywriter and marketing mentor specializing in website and sales page copywriting, 1:1 mentorship and consulting, cheeky humor, oversharing, and the occasional bad hair day.</p>
+                <p>Using her <em>sales-focused storytelling</em> method—and a well-documented obsession with writing copy that consistently gets results—Sara helps brands and businesses of all shapes and sizes connect with their ideal clients, increase their revenue, and feel confident leading their next success story.</p>
+                <p>As an extrovert by nature, social anxiety's worst nightmare, and personal client cheerleader by choice, Sara is someone you'd really benefit from having in your corner. And no, she <em>definitely</em> didn't just write this whole bio about herself. Because that would be... weird. <em>*awkward laughter*</em></p>
+            </div>
+        </div>
+    </section>
+
+
+
+
 
     <!-- Opt-in Section -->
     <section class="optin-section">
