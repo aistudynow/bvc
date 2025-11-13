@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +9,66 @@
     <title>Contact | Between The Lines Copywriting</title>
 
     <style>
+
+
+  @font-face {
+            font-family: 'Helvetica Neue Bold';
+            src: url('https://static.showit.co/file/M_gQSc002IEHuwO1GGYBBg/146140/helveticaneuebold-webfont.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Helvetica Neue Light';
+            src: url('https://static.showit.co/file/sDwDSb6YQgeP5ZXTtt6vuQ/146140/helveticaneuelight-webfont.woff') format('woff');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Helvetica Neue Light Italic';
+            src: url('https://static.showit.co/file/rFyT4yqspoX-xfHW4U9hBA/146140/helveticaneuelightitalic-webfont.woff') format('woff');
+            font-weight: 300;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Mercenary Medium';
+            src: url('https://static.showit.co/file/IN6c5sCISvwE5IHTieKwKw/146140/mercenary-medium-webfont.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Mercenary';
+            src: url('https://usercontent.flodesk.com/68340e78-8c8d-4c4b-b370-d5f7861eff05/font/mercenarymedium.ttf') format('truetype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Ivy Presto';
+            src: url('https://static.showit.co/file/pwoBGetlTEGqgXEH8nOLwg/146140/ivypresto_display_thin-webfont.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Prairie Script Bold';
+            src: url('https://static.showit.co/file/pk5SX8pYRxSO3B08LdvN3g/146140/prairie-script-bold-webfont.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+
         * {
             margin: 0;
             padding: 0;
@@ -20,15 +83,19 @@
             --color-gray: #b8b8b8;
             --color-bg: #EFEBE6;
             --color-footer: #172D43;
+            --hero-sticky-height: 100vh;
+            --hero-min-height-mobile: 500px;
+            --hero-min-height-desktop: 700px;
         }
 
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+       body {
+            font-family: 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: 300;
             line-height: 1.6;
             color: var(--color-dark);
             background-color: var(--color-light);
         }
+
 
         .container {
             max-width: 1200px;
@@ -36,12 +103,13 @@
             padding: 0 20px;
         }
 
-        /* Banner */
+       /* Banner */
         .banner {
             background-color: #75A5CB;
             padding: 12px 20px;
             text-align: center;
             position: relative;
+            z-index: 6;
         }
 
         .banner-text {
@@ -75,6 +143,8 @@
         /* Navigation */
         .nav {
             padding: 20px 0;
+            position: relative;
+            z-index: 5;
         }
 
         .nav-inner {
@@ -134,17 +204,21 @@
             }
         }
 
+         
         /* Hero Section */
         .hero {
-            position: relative;
-            height: 500px;
-            background: linear-gradient(0deg, rgba(0,0,0,1) 0%, transparent 100%);
+            position: sticky;
+            top: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            min-height: clamp(520px, 100vh, 760px);
+            padding: 120px 20px;
+            background: linear-gradient(0deg, rgba(0,0,0,1) 0%, transparent 100%);
             overflow: hidden;
-            z-index: 1;
+            z-index: 0;
+            transition: opacity 0.4s ease, transform 0.4s ease;
         }
 
         .hero::before {
@@ -153,17 +227,42 @@
             inset: 0;
             background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 100%);
             z-index: 1;
+            transition: opacity 0.4s ease;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
             padding: 20px;
+            transition: opacity 0.4s ease;
+        }
+
+        .hero.hero--covered {
+            position: relative;
+            top: auto;
+            opacity: 0.25;
+            transform: scale(0.97);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .hero.hero--covered .hero-content {
+            opacity: 0;
+        }
+
+        .hero.hero--covered::before {
+            opacity: 0.5;
+        }
+
+        .hero ~ section,
+        .hero ~ footer {
+            position: relative;
+            z-index: 2;
         }
 
         .hero-subtitle {
             color: var(--color-light);
-            font-family: 'Brush Script MT', cursive;
+            font-family: 'Prairie Script Bold', 'Brush Script MT', cursive;
             font-size: 20px;
             margin-bottom: 10px;
             letter-spacing: -0.1em;
@@ -171,7 +270,7 @@
 
         .hero-title {
             color: var(--color-light);
-            font-family: 'Georgia', serif;
+            font-family: 'Ivy Presto', serif;
             font-size: 39px;
             line-height: 1;
             margin-bottom: 0;
@@ -179,7 +278,7 @@
 
         @media (min-width: 768px) {
             .hero {
-                height: 700px;
+                min-height: 80vh;
             }
             .hero-subtitle {
                 font-size: 30px;
@@ -191,12 +290,14 @@
 
         /* CONTACT SECTION: top row + sticky left + form right */
 
-        .contact-section {
+       .contact-section {
+            position: relative;
+            z-index: 1;
             background-color: var(--color-light);
-            padding: 80px 0 60px;
+            padding: 100px 0 60px;
         }
 
-        .contact-top-row {
+       .contact-top-row {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -210,23 +311,73 @@
             z-index: 100;
             padding: 20px 0;
             transition: all 0.3s ease;
+            color: var(--color-secondary);
         }
 
-        .contact-top-row.stuck {
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+       .contact-top-row.stuck {
+            box-shadow: none;
         }
 
-        .contact-top-left,
+          .contact-top-left,
         .contact-top-right {
-            color: var(--color-dark);
+            color: var(--color-secondary);
+            font-family: 'Mercenary Medium', 'Mercenary', sans-serif;
             white-space: nowrap;
         }
 
-        .contact-layout {
+
+
+
+         .contact-layout {
             display: flex;
             flex-direction: column;
             gap: 40px;
         }
+
+
+
+
+       .contact-left {
+            background-color: var(--color-light);
+        }
+
+        .contact-right {
+            position: relative;
+            padding: 20px 0;
+            overflow: visible;
+        }
+
+        .contact-wave {
+            position: absolute;
+            width: 320px;
+            height: 240px;
+            background-image: url('https://static.showit.co/2400/mIUAIKU2tPP2G7Wc0hrDsw/146140/sara_noel_shapes_1.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: 0.55;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .contact-wave--top {
+            top: -60px;
+            right: -60px;
+            transform: scale(0.88) rotate(1deg);
+        }
+
+        .contact-wave--bottom {
+            bottom: -40px;
+            left: -120px;
+            transform: scale(0.82) rotate(-2deg);
+        }
+
+        .contact-right > * {
+            position: relative;
+            z-index: 1;
+        }
+
+
+
 
         @media (min-width: 900px) {
             .contact-layout {
@@ -241,21 +392,25 @@
                 top: 100px;
                 align-self: flex-start;
                 height: fit-content;
-                max-height: calc(100vh - 120px);
-                overflow-y: auto;
+                padding-bottom: 20px;
+            }
+
+            .contact-right {
+                padding: 30px 40px;
             }
         }
 
         .contact-heading {
-            font-family: 'Georgia', serif;
-            font-size: 32px;
+            font-family: 'Ivy Presto', serif;
+            font-weight: 400;
+            font-size: 36px;
             line-height: 1.1;
             margin-bottom: 24px;
         }
 
-        @media (min-width: 900px) {
+                @media (min-width: 900px) {
             .contact-heading {
-                font-size: 54px;
+                font-size: 64px;
             }
         }
 
@@ -283,18 +438,34 @@
             display: block;
         }
 
-        .contact-author-name {
+      .contact-author-name {
+            font-family: 'Mercenary Medium', 'Mercenary', sans-serif;
             font-size: 14px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
         }
 
         .contact-intro {
+            font-family: 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-size: 16px;
             line-height: 1.6;
             margin-bottom: 24px;
             max-width: 480px;
         }
+
+
+.contact-intro em {
+            font-family: 'Helvetica Neue Light Italic', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-style: normal;
+        }
+
+        .contact-intro strong,
+        .contact-box strong {
+            font-family: 'Helvetica Neue Bold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: 400;
+        }
+
+
 
         .contact-box {
             border: 1px solid rgba(19, 33, 51, 0.3);
@@ -304,6 +475,7 @@
         }
 
         .contact-box p {
+            font-family: 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-size: 14px;
             line-height: 1.6;
             margin-bottom: 14px;
@@ -314,9 +486,10 @@
             margin-bottom: 0;
         }
 
-        .contact-box-email {
+       .contact-box-email {
             font-size: 18px;
             color: var(--color-dark);
+            font-family: 'Mercenary Medium', 'Mercenary', sans-serif;
             text-decoration: underline;
         }
 
@@ -329,6 +502,10 @@
             margin-bottom: 24px;
             text-align: left;
         }
+
+
+
+
 
         @media (min-width: 900px) {
             .form-title {
@@ -740,6 +917,11 @@
 
                 <!-- RIGHT (scrolling form) -->
                 <div class="contact-right">
+
+       <span class="contact-wave contact-wave--top" aria-hidden="true"></span>
+                    <span class="contact-wave contact-wave--bottom" aria-hidden="true"></span>
+
+
                     <h2 class="form-title">Now Booking February/March 2026</h2>
 
                     <form class="contact-form" id="contactForm">
@@ -957,22 +1139,42 @@
             navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
         });
 
-        // Sticky Header Effect
-        window.addEventListener('scroll', function() {
-            const contactTopRow = document.querySelector('.contact-top-row');
-            const contactSection = document.querySelector('.contact-section');
 
-            if (contactTopRow && contactSection) {
-                const sectionTop = contactSection.offsetTop;
-                const scrollPosition = window.pageYOffset;
 
-                if (scrollPosition >= sectionTop) {
-                    contactTopRow.classList.add('stuck');
-                } else {
-                    contactTopRow.classList.remove('stuck');
+
+          // Sticky Header + Hero layering effect
+        const heroSection = document.querySelector('.hero');
+        const contactTopRow = document.querySelector('.contact-top-row');
+        const contactSection = document.querySelector('.contact-section');
+
+        function updateScrollEffects() {
+            if (!(contactTopRow && contactSection)) {
+                if (heroSection) {
+                    heroSection.classList.remove('hero--covered');
+                }
+                return;
+            }
+
+            const sectionTop = contactSection.offsetTop;
+            const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollPosition >= sectionTop) {
+                contactTopRow.classList.add('stuck');
+                if (heroSection) {
+                    heroSection.classList.add('hero--covered');
+                }
+            } else {
+                contactTopRow.classList.remove('stuck');
+                if (heroSection) {
+                    heroSection.classList.remove('hero--covered');
                 }
             }
-        });
+        }
+
+        window.addEventListener('scroll', updateScrollEffects, { passive: true });
+        window.addEventListener('resize', updateScrollEffects);
+        window.addEventListener('load', updateScrollEffects);
+        updateScrollEffects();
     </script>
 </body>
 </html>
